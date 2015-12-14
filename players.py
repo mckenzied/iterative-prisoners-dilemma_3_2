@@ -45,3 +45,20 @@ Team John:
                     return 'c'         #collude
                 else:
                     return 'b'         #otherwise betray
+
+Team Chase
+    if getting_team_name:
+            return 'TEAM_CHASE_'
+        else:
+            if len(opponent_history)==0: #It's the first round: betray
+                return 'b'
+            if history[-1]=='c' and opponent_history[-1]=='b':
+                return 'b' 
+            if opponent_history[-1]=='c' and history[-1]=='b':
+                return 'b'
+            if score >= opponent_score:
+                return 'c'
+            if score <= opponent_score:
+                return 'b'
+            else:
+                return 'c'
