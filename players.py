@@ -62,3 +62,22 @@ Team Chase
                 return 'b'
             else:
                 return 'c'
+
+Team Nate:
+    if getting_team_name:
+        return 'Team_Nate'
+    else:
+        if len(opponent_history)==0:
+            return 'c'
+        if history[-1]=='c':
+            if opponent_history[-1]=='c':
+                return 'c'
+            else:
+                return 'b'
+        if history[-1]=='b':
+            if opponent_history[-1]=='c':
+                return 'b'
+            else:
+                return 'b'
+                
+            
