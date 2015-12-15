@@ -14,37 +14,20 @@ Team Jake:
                 return 'c'  
 Team John:
     if getting_team_name:
-            return 'Team_John'
-        else:
-            if len(history)==0: #It's the first round: collude
-                return 'c'
-                
-            elif history[-1]=='b' and opponent_history[-1]=='c':
-                return 'b' # betray is they were severely punished last time
-            
-            elif len(history)==1:
-                if random.random()<0.2:
-                    return 'c'
-                else:
+        return 'Team_John'
+    else:
+        if len(history)==0: #It's the first round: betray
+            return 'b'
+        elif len(history)>=1:
+            if len(history)>=4:
+                if opponent_history[0]=='c' and opponent_history[1]=='b' and opponent_history[2]=='b' and opponent_history[3]=='c':
                     return 'b'
-                    
-            elif len(history)==4:
+            if opponent_history[-1]=='c' and history[-1]=='b':
                 return 'b'
-                
-            elif len(history)==8:
+            if score <= opponent_score:
+                return 'b'
+            elif score >= opponent_score:
                 return 'c'
-                
-            elif len(history)>= 2:
-               if history[-1]=='c' and opponent_history[-1]=='b':
-                    return 'b' # betray
-               else:
-                    return 'c' #otherwise collude
-            
-            else:
-                if random.random()<0.00001: #% of the other rounds
-                    return 'c'         #collude
-                else:
-                    return 'b'         #otherwise betray
 
 Team Chase
     if getting_team_name:
