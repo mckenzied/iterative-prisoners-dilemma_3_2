@@ -43,8 +43,9 @@ Team Chase
                 return 'c'
             if score <= opponent_score*score:
                 return 'b'
+            if history[-1]=='b':
+                return 'b'
             else:
-<<<<<<< HEAD
                 return 'c'
 
 Team Nate:
@@ -63,11 +64,4 @@ Team Nate:
                 return 'b'
             else:
                 return 'b'
-                
-            
-=======
-                if history[-1]=='b':
-                    return 'b'
-                else:
-                    return 'c'
->>>>>>> refs/remotes/origin/master
+
